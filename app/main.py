@@ -24,7 +24,7 @@ class Distance:
     def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
-    def __add__(self, other: Distance) -> Distance:
+    def __add__(self, other: Distance|int|float) -> Distance:
         if isinstance(other, Distance):
             value = other.km
         elif isinstance(other, (int, float)):
@@ -33,7 +33,7 @@ class Distance:
             return NotImplemented
         return Distance(self.km + value)
 
-    def __iadd__(self, other: Distance) -> Distance:
+    def __iadd__(self, other: Distance|int|float) -> Distance:
         if isinstance(other, Distance):
             value = other.km
         elif isinstance(other, (int, float)):
