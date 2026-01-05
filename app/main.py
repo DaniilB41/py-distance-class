@@ -1,8 +1,9 @@
 from __future__ import annotations
+from typing import Callable
 
 
-def magic_test(func):
-    def inner(self, other: object) -> bool:
+def magic_test(func: Callable) -> Callable:
+    def inner(self: object, other: object) -> bool:
         if isinstance(other, Distance):
             rhs = other.km
         elif isinstance(other, (int, float)):
@@ -15,7 +16,7 @@ def magic_test(func):
 
 
 class Distance:
-    def __init__(self, km: int) -> None:
+    def __init__(self, km: int | float) -> None:
         self.km = km
 
     def __str__(self) -> str:
@@ -24,7 +25,7 @@ class Distance:
     def __repr__(self) -> str:
         return f"Distance(km={self.km})"
 
-    def __add__(self, other: Distance|int|float) -> Distance:
+    def __add__(self, other: Distance | int | float) -> Distance:
         if isinstance(other, Distance):
             value = other.km
         elif isinstance(other, (int, float)):
@@ -33,7 +34,7 @@ class Distance:
             return NotImplemented
         return Distance(self.km + value)
 
-    def __iadd__(self, other: Distance|int|float) -> Distance:
+    def __iadd__(self, other: Distance | int | float) -> Distance:
         if isinstance(other, Distance):
             value = other.km
         elif isinstance(other, (int, float)):
