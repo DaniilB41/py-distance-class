@@ -53,21 +53,21 @@ class Distance:
         return Distance(round(self.km / other, 2))
 
     @magic_test
-    def __lt__(self, rhs: int | float) -> bool:
-        return self.km < rhs
+    def __lt__(self, other: int | float) -> bool:
+        return self.km < other
 
     @magic_test
-    def __gt__(self, rhs: int | float) -> bool:
-        return self.km > rhs
+    def __gt__(self, other: int | float) -> bool:
+        return self.km > other
 
     @magic_test
-    def __eq__(self, rhs: int | float) -> bool:
-        return self.km == rhs
+    def __eq__(self, other: int | float) -> bool:
+        return self.km == other
 
     @magic_test
-    def __le__(self, rhs: int | float) -> bool:
-        return self.km <= rhs
+    def __le__(self, other: int | float) -> bool:
+        return self.km <= other
 
     @magic_test
-    def __ge__(self, rhs: int | float) -> bool:
-        return self.km >= rhs
+    def __ge__(self, other: int | float) -> bool:
+        return self.km >= other
